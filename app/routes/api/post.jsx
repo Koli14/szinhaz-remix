@@ -1,9 +1,9 @@
-import { json } from '@remix-run/node';
+import { json } from '@remix-run/node'
 
-import { fetchFromGraphQL, gql } from '~/utils';
+import { fetchFromGraphQL, gql } from '~/utils'
 
 export const loader = async (args) => {
-  const { postId } = args.params;
+  const { postId } = args.params
   const getPostQuery = gql`
     query getPost($postId: ID!) {
       post(id: $postId, idType: SLUG) {
@@ -30,8 +30,8 @@ export const loader = async (args) => {
         }
       }
     }
-  `;
+  `
 
-  const res = await fetchFromGraphQL(getPostQuery, { postId });
-  return json(await res.json());
-};
+  const res = await fetchFromGraphQL(getPostQuery, { postId })
+  return json(await res.json())
+}

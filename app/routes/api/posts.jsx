@@ -1,10 +1,10 @@
-import { json } from '@remix-run/node';
+import { json } from '@remix-run/node'
 
-import { fetchFromGraphQL, gql } from '~/utils';
+import { fetchFromGraphQL, gql } from '~/utils'
 
 export const loader = async (args) => {
-  const { params } = args;
-  const { page = 1 } = params;
+  const { params } = args
+  const { page = 1 } = params
 
   const getPostsQuery = gql`
     query {
@@ -15,9 +15,9 @@ export const loader = async (args) => {
         }
       }
     }
-  `;
+  `
 
-  const res = await fetchFromGraphQL(getPostsQuery, { page });
+  const res = await fetchFromGraphQL(getPostsQuery, { page })
 
-  return json(await res.json());
-};
+  return json(await res.json())
+}

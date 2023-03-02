@@ -1,10 +1,10 @@
-import type { LoaderArgs } from "@remix-run/node";
-import { json } from "@remix-run/node";
+import type { LoaderArgs } from '@remix-run/node'
+import { json } from '@remix-run/node'
 
-import { fetchFromGraphQL, gql } from "~/utils";
+import { fetchFromGraphQL, gql } from '~/utils'
 
 export const loader = async ({ params }: LoaderArgs) => {
-  const { page = 1 } = params;
+  const { page = 1 } = params
 
   const getCharactersQuery = gql`
     fragment CharacterFields on Character {
@@ -33,9 +33,9 @@ export const loader = async ({ params }: LoaderArgs) => {
         ...GetCharactersFields
       }
     }
-  `;
+  `
 
-  const res = await fetchFromGraphQL(getCharactersQuery, { page });
+  const res = await fetchFromGraphQL(getCharactersQuery, { page })
 
-  return json(await res.json());
-};
+  return json(await res.json())
+}

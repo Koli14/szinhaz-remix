@@ -1,6 +1,6 @@
-import { json } from '@remix-run/node';
+import { json } from '@remix-run/node'
 
-import { fetchFromGraphQL, gql } from '~/utils';
+import { fetchFromGraphQL, gql } from '~/utils'
 
 export const loader = async () => {
   const getTagCloudQuery = gql`
@@ -17,9 +17,9 @@ export const loader = async () => {
         }
       }
     }
-  `;
+  `
 
-  const res = await fetchFromGraphQL(getTagCloudQuery);
+  const res = await fetchFromGraphQL(getTagCloudQuery)
 
-  return json(await res.json());
-};
+  return json(await res.json())
+}

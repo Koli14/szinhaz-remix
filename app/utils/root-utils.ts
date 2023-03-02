@@ -6,7 +6,7 @@ export function links() {
       rel: 'stylesheet',
       href: 'https://fonts.googleapis.com/css2?family=Bellefair&family=Noto+Serif:ital@0;1&family=Open+Sans:wght@400;800&display=swap',
     },
-  ];
+  ]
 }
 
 export function meta() {
@@ -14,7 +14,7 @@ export function meta() {
     charset: 'utf-8',
     title: 'Színház Online',
     viewport: 'width=device-width,initial-scale=1',
-  };
+  }
 }
 export const colors = {
   primary: {
@@ -41,9 +41,9 @@ export const colors = {
     800: '#4b2a00',
     900: '#1d0c00',
   },
-};
+}
 
 export const fonts = {
   heading: "'Noto Serif', serif",
   body: "'Open Sans', sans-serif",
-};
+}

@@ -1,6 +1,6 @@
-import { json } from '@remix-run/node';
+import { json } from '@remix-run/node'
 
-import { fetchFromGraphQL, gql } from '~/utils';
+import { fetchFromGraphQL, gql } from '~/utils'
 
 export const loader = async () => {
   const getHomeQuery = gql`
@@ -49,8 +49,8 @@ export const loader = async () => {
         }
       }
     }
-  `;
+  `
 
-  const res = await fetchFromGraphQL(getHomeQuery);
-  return json(await res.json());
-};
+  const res = await fetchFromGraphQL(getHomeQuery)
+  return json(await res.json())
+}

@@ -1,6 +1,6 @@
-import { json } from '@remix-run/node';
+import { json } from '@remix-run/node'
 
-import { fetchFromGraphQL, gql } from '~/utils';
+import { fetchFromGraphQL, gql } from '~/utils'
 
 export const loader = async () => {
   const getRootQuery = gql`
@@ -43,9 +43,9 @@ export const loader = async () => {
         }
       }
     }
-  `;
+  `
 
-  const res = await fetchFromGraphQL(getRootQuery);
+  const res = await fetchFromGraphQL(getRootQuery)
 
-  return json(await res.json());
-};
+  return json(await res.json())
+}
