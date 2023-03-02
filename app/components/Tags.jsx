@@ -11,6 +11,7 @@ export const CloudTag = ({ tag }) => {
       bg={'white'}
       mx='11px'
       my='3px'
+      border='0'
       _hover={{
         bg: color,
         color: 'white',
