@@ -1,4 +1,4 @@
-export interface CodeProps {
+export type CodeProps = {
   data: any
   summary: string
 }

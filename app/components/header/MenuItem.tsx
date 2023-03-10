@@ -1,7 +1,20 @@
 import { Box } from '@chakra-ui/react'
 import { Link } from '@remix-run/react'
 
-export default function MenuItem({ menuItem, isLast }) {
+export type hierarchicalMenuItemType = {
+  key: string
+  parentId: string
+  title: string
+  uri: string
+  children?: hierarchicalMenuItemType[]
+}
+
+export type MenuItemProps = {
+  menuItem: hierarchicalMenuItemType
+  isLast: boolean
+}
+
+export default function MenuItem({ menuItem, isLast }: MenuItemProps) {
   return (
     <Box
       as='li'

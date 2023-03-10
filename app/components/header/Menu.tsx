@@ -1,7 +1,23 @@
 import { Box, Flex } from '@chakra-ui/react'
+import type { hierarchicalMenuItemType } from './MenuItem'
 import MenuItem from './MenuItem'
 
-export default function Menu({ menuItems }) {
+export type flatMenuItemType = {
+  key: string
+  parentId: string
+  title: string
+  uri: string
+}
+
+export type MenuProps = {
+  menuItems: flatMenuItemType[]
+}
+
+type childrenOfType = {
+  [key: string]: hierarchicalMenuItemType[]
+}
+
+export default function Menu({ menuItems }: MenuProps) {
   const hierarchicalList = flatListToHierarchical(menuItems)
 
   return (
@@ -19,17 +35,14 @@ export default function Menu({ menuItems }) {
   )
 }
 
-const flatListToHierarchical = (
-  data = [],
-  { idKey = 'key', parentKey = 'parentId', childrenKey = 'children' } = {},
-) => {
-  const tree = []
-  const childrenOf = {}
+const flatListToHierarchical = (data: flatMenuItemType[] = []) => {
+  const tree: hierarchicalMenuItemType[] = []
+  const childrenOf: childrenOfType = {}
   data.forEach((item) => {
-    const newItem = { ...item }
-    const { [idKey]: id, [parentKey]: parentId = 0 } = newItem
+    const newItem: hierarchicalMenuItemType = { ...item }
+    const { key: id, parentId = 0 } = newItem
     childrenOf[id] = childrenOf[id] || []
-    newItem[childrenKey] = childrenOf[id]
+    newItem.children = childrenOf[id]
     parentId
       ? (childrenOf[parentId] = childrenOf[parentId] || []).push(newItem)
       : tree.push(newItem)
@@ -37,7 +50,7 @@ const flatListToHierarchical = (
   return tree
 }
 
-const SiteMenu = ({ children }) => (
+const SiteMenu = ({ children }: { children: React.ReactNode }) => (
   <Flex
     as='ul'
     justifyContent='center'

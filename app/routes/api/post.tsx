@@ -1,8 +1,9 @@
+import type { LoaderArgs } from '@remix-run/node'
 import { json } from '@remix-run/node'
 
 import { fetchFromGraphQL, gql } from '~/utils'
 
-export const loader = async (args) => {
+export const loader = async (args: LoaderArgs) => {
   const { postId } = args.params
   const getPostQuery = gql`
     query getPost($postId: ID!) {

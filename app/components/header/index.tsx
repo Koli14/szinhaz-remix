@@ -1,19 +1,30 @@
 import { Box, Flex } from '@chakra-ui/react'
 import { Link } from '@remix-run/react'
 
+import type { flatMenuItemType } from './Menu'
 import Menu from './Menu'
 import MobilMenu from './MobilMenu'
 import SearchButton from './SearchButton'
 import SocialNav from './SocialNav'
 import TagCloud from './TagCloud'
 
+export type HeaderProps = {
+  tagClouds: object[]
+  menuItems: flatMenuItemType[]
+  hasGateBanner: boolean
+}
+
 /**
  * @name Header
  * @description The header
  */
-export const Header = ({ tagClouds, menuItems, hasGateBanner }) => {
+export const Header = ({
+  tagClouds,
+  menuItems,
+  hasGateBanner,
+}: HeaderProps) => {
   const jsDate = new Date()
-  const options = {
+  const options: Intl.DateTimeFormatOptions = {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
