@@ -2,7 +2,7 @@ import { Box, Flex } from '@chakra-ui/react'
 import { useLoaderData } from '@remix-run/react'
 import { LeftCoverItems, RightCoverItems } from '~/components/home/cover'
 
-export { loader } from '~/routes/api/home'
+export { loader } from '~/routes/api.home'
 
 const Index = () => {
   const loader = useLoaderData()

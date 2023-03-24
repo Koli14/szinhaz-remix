@@ -14,7 +14,7 @@ import { GateBanner } from '~/components/GateBanner'
 import { Header } from '~/components/header'
 import { colors, fonts } from './utils/root-utils'
 
-export { loader } from '~/routes/api/root'
+export { loader } from '~/routes/api.root'
 export { links, meta } from './utils/root-utils'
 
 // Put the html skeleton in a component to make it easier to wrap ever

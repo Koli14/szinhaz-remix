@@ -3,7 +3,7 @@ import { useLoaderData, useParams } from '@remix-run/react'
 import { Header } from '~/components/post'
 import stylesUrl from '~/styles/post.css'
 
-export { loader } from '~/routes/api/post'
+export { loader } from '~/routes/api.post'
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: stylesUrl }]
