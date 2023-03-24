@@ -43,12 +43,12 @@ export const loader = async () => {
  * an array of errors coming back from the GraphQL API.
  */
 export default function CharacterError() {
-  const load = useLoaderData<typeof loader>()
+  const loaderData = useLoaderData<typeof loader>()
 
   return (
     <main className='ui-main'>
       <h1>Ex: GraphQL Error</h1>
-      <Code data={load} summary='Loader Data' />
+      <Code data={loaderData} summary='Loader Data' />
       <p>
         Uh oh, we've intentionally triggered an error, expand the details above
         to see what's going on.

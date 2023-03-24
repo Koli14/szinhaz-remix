@@ -1,7 +1,13 @@
+import type { BoxProps } from '@chakra-ui/react'
 import { Box } from '@chakra-ui/react'
 import { Link } from '@remix-run/react'
+import type { Tag as TagType } from '~/generated/types'
 
-export const CloudTag = ({ tag }) => {
+interface TagProps extends BoxProps {
+  tag: TagType
+}
+
+export const CloudTag = ({ tag }: TagProps) => {
   let color = tag.taxonomyColor?.taxColor ?? '#eda407'
 
   return (
@@ -20,7 +26,7 @@ export const CloudTag = ({ tag }) => {
   )
 }
 
-export const CoverTag = ({ tag }) => {
+export const CoverTag = ({ tag }: TagProps) => {
   return (
     <Tag
       tag={tag}
@@ -32,12 +38,12 @@ export const CoverTag = ({ tag }) => {
       bg='white'
       color='black'
       borderRadius='0'
-      _hover={null}
+      _hover={undefined}
     />
   )
 }
 
-export const Tag = ({ tag, ...props }) => {
+export const Tag = ({ tag, ...props }: TagProps) => {
   let bgColor = tag.taxonomyColor?.taxColor ?? '#eda407'
   return (
     <Box
@@ -67,4 +73,4 @@ export const Tag = ({ tag, ...props }) => {
   )
 }
 
-export const Tags = ({ tags }) => {}
+export const Tags = ({ tags }: any) => {}
