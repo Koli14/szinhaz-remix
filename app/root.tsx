@@ -50,7 +50,12 @@ export function Layout({
   data: any
   children: React.ReactNode
 }) {
-  const hasGateBanner = data.bannerek?.bannerek?.gatebanner?.kep
+  if (!data) {
+    return (
+      <div>Something went wrong, there is no connection with the server...</div>
+    )
+  }
+  const hasGateBanner = data?.bannerek?.bannerek?.gatebanner?.kep
   return (
     <>
       {hasGateBanner && <GateBanner banners={data.bannerek.bannerek} />}
